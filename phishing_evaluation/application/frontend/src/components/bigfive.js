@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const BigFive = () => {
     const [responses, setResponses] = useState({
-        q1: '', q2: '', q3: '', q4: '', q5: '', 
+        q1: '', q2: '', q3: '', q4: '', q5: '',
         q6: '', q7: '', q8: '', q9: '', q10: ''
     });
     const navigate = useNavigate();
@@ -19,7 +19,7 @@ const BigFive = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log(responses);
-        navigate("/email_evaluation"); 
+        navigate("/email_evaluation");
     };
 
     // Array of BFI-10 statements for rendering
@@ -40,10 +40,11 @@ const BigFive = () => {
         <div className='app-container'>
             <h1>Phishing Email Evaluation</h1>
             <form onSubmit={handleSubmit}>
+                <h2 color="black">I see myself as someone who...</h2>
                 {statements.map((statement, index) => (
                     <div key={index}>
                         <label>
-                            I see myself as someone who {statement}
+                            {statement}
                             <select
                                 name={`q${index + 1}`}
                                 value={responses[`q${index + 1}`]}
@@ -62,7 +63,8 @@ const BigFive = () => {
                 <div>
                     <button type="submit">Submit</button>
                 </div>
-            </form>
+            </form>"
+
         </div>
     );
 };
